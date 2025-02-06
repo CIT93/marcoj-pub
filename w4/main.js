@@ -48,7 +48,13 @@ function start (houseHoldMembers, houseSize){
 }
 
 function displayOutput(){
-    
+    for (arr of CfpData){
+        console.log(arr);
+        const output = document.getElementById("output");
+        const newP = document.createElement("p");
+        newP.textContent = `With ${arr[0]} members (${arr[2]} pts.) in a ${arr[1]} sized house (${arr[3]} pts.), carbon footprint total is ${arr[4]}.`;
+        output.appendChild(newP);
+    }
 }
 
 start(7, "large");
@@ -58,7 +64,6 @@ start(4, "large");
 start(3, "large");
 start(2, "large");
 start(1, "large");
-start(0, "large");
 
 start(7, "medium");
 start(6, "medium");
@@ -67,7 +72,6 @@ start(4, "medium");
 start(3, "medium");
 start(2, "medium");
 start(1, "medium");
-start(0, "medium");
 
 start(7, "small");
 start(6, "small");
@@ -76,7 +80,6 @@ start(4, "small");
 start(3, "small");
 start(2, "small");
 start(1, "small");
-start(0, "small");
 
 start(7, "apt");
 start(6, "apt");
@@ -85,6 +88,5 @@ start(4, "apt");
 start(3, "apt");
 start(2, "apt");
 start(1, "apt");
-start(0, "apt");
 
 displayOutput()
