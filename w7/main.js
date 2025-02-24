@@ -21,7 +21,9 @@ movieData.forEach(movie => {
     } else if (movie.rating < 6 || movie.watched > 3) {
         newP.textContent = `You shouldn't watch ${movie.title}. Either low rating or seen more then 3 times `;
         output2.appendChild(newP);
+    } else {
+        newP.textContent = `No recommendation for ${movie.title}.`;
+        output2.appendChild(newP);
     }
-
 });
 
