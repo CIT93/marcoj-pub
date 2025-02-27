@@ -17,7 +17,7 @@ function renderTblHead () {
 //making row data ** Now with passed on values WOO! **
 function renderTblRow(data, fName, lName){
     const fullName = `${fName} ${lName}`
-    const tempArr = [fullName, data[timesRun].houseHoldMembers, data[timesRun].houseSize, data[timesRun].total]
+    const tempArr = [fullName, data.houseHoldMembers, data.houseSize, data.total]
     const tr= document.createElement("tr")
     tempArr.forEach(function(text){
         const td = document.createElement("td");
@@ -37,6 +37,31 @@ function renderTblRow(data, fName, lName){
     return tr;
 }
 
+
+/*challenge 2 could not figure out how to get the heading to only show up once
+the theory is create header or dont if made already.
+create the row for entered data (this would persist)
+create a new table by adding heading and row data
+I think what is throwing me off is that they have to be wrapped in the proper tags to make up the table.
+*/
+ function renderTbl (data, fName, lName) {
+    const table = document.createElement("table");
+    const table2 = document.createElement("table");
+    const table3 = document.createElement("table");
+    const tbody = document.createElement("tbody");
+    let i = 0
+    if (i===0) {
+        const thead = renderTblHead();
+        table.appendChild(thead);
+    }
+    const trow = renderTblRow(data[i], fName, lName);
+    tbody.appendChild(trow);
+    table.appendChild(tbody);
+    TBL.appendChild(table);
+    i++ //makes sure next table will use new input instead of data at [0]
+}
+
+/*  disabled old table render
 function renderTbl (data, fName, lName) {
     const table = document.createElement("table");
     const thead = renderTblHead();
@@ -49,5 +74,6 @@ function renderTbl (data, fName, lName) {
     TBL.appendChild(table);
     timesRun++ //makes sure next table will use new input instead of data at [0]
 }
+*/
 
 export {renderTbl,renderTblHead, renderTblRow}

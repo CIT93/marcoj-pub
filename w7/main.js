@@ -4,7 +4,21 @@ import { start } from "./cfp.js";
 const FORM =document.getElementById("form");
 const OUTPUT = document.getElementById("output");
 
+FORM.addEventListener("submit", function(e){
+    e.preventDefault();
+    const firstName = FORM.firstname.value;
+    const lastName = FORM.lastname.value;
+    const NIH = parseInt(FORM.householdsize.value, 10);  //Had to convert the string to a number using a base10 number system
+    const HS = FORM.housesize.value;
+    const cfpData = start(NIH,HS);
+    OUTPUT.innerHTML = "";
+    renderTbl(cfpData, firstName, lastName);
+    FORM.reset();
+})
 
+
+
+/* disabled original event listener
 FORM.addEventListener("submit", function(e){
     e.preventDefault();
     //console.log('I am inside the function');
@@ -16,18 +30,15 @@ FORM.addEventListener("submit", function(e){
     //console.log(NIH);  //used to check
     const HS = FORM.housesize.value;
     //console.log(HS);   //used to check
-    start(NIH,HS);
+    const cfpData = start(NIH,HS);
     OUTPUT.innerHTML = "";
     //displayOutput();
     renderTbl(cfpData, firstName, lastName);
     FORM.reset();
 })
+*/
 
-
-
-
-
-/*
+/* previous assignment for movies
 const movieData = [
     {title:"The Proposal", year:2009, rating:7, watched: 2},
     {title:"500 Days of Summer", year:2009, rating:8, watched: 5},
