@@ -45,6 +45,7 @@ function start(houseHoldMembers, houseSize) {
         houseSizePts: houseSizePts, 
         total: total,
     });
+    return cfpData
 }
 
 export {start}
