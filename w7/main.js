@@ -1,3 +1,33 @@
+import { renderTbl } from "./render.js";
+import { start } from "./cfp.js";
+
+const FORM =document.getElementById("form");
+const OUTPUT = document.getElementById("output");
+
+
+FORM.addEventListener("submit", function(e){
+    e.preventDefault();
+    //console.log('I am inside the function');
+    //console.log(e);
+    const firstName = FORM.firstname.value;
+    const lastName = FORM.lastname.value;
+    const NIHTemp = FORM.householdsize.value;
+    const NIH = parseInt(NIHTemp, 10);  //Had to convert the string to a number using a base10 number system
+    //console.log(NIH);  //used to check
+    const HS = FORM.housesize.value;
+    //console.log(HS);   //used to check
+    start(NIH,HS);
+    OUTPUT.innerHTML = "";
+    //displayOutput();
+    renderTbl(cfpData, firstName, lastName);
+    FORM.reset();
+})
+
+
+
+
+
+/*
 const movieData = [
     {title:"The Proposal", year:2009, rating:7, watched: 2},
     {title:"500 Days of Summer", year:2009, rating:8, watched: 5},
@@ -27,3 +57,4 @@ movieData.forEach(movie => {
     }
 });
 
+*/
