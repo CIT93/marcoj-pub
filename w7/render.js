@@ -37,11 +37,6 @@ function renderTblRow(data, fName, lName, i){
     return tr;
 }
 
-
-/* challenge 3
-was having trouble with using i to pass on a spicific array so passed on the i only to realize i had put it in the block scope
-this made it so each time the form was submitted it was reset to zero defeating the purpose. moved it to global. this allowed it to work
-*/
  function renderTbl (data, fName, lName) {
     const table = document.createElement("table");
     const tbody = document.createElement("tbody");
