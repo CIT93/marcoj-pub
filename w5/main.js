@@ -1,103 +1,60 @@
-const cfpData = [];
+const TBL = document.getElementById("tabData")
 
-function determineHouseSizePts(size) {
-  let houseSizePoints = 0;
-  if(size === "large") {
-    houseSizePoints = 10;
-  } else if(size === "medium") {
-    houseSizePoints = 7;
-  } else if (size === "small") {
-    houseSizePoints = 4;
-  } else if (size === "apt") {
-    houseSizePoints = 2;
-  }
-    return houseSizePoints;
+const movieData = [
+  {title:"The Proposal", year:2009, rating:7, seen:2},
+  {title:"500 Days of Summer", year:2009, rating:8, seen:5},
+  {title:"The Menu", year:2022 , rating:7, seen:3},
+  {title:"Companion", year:2025 , rating:7, seen:1},
+  {title:"The Circle", year:2017 , rating:5, seen:4}
+];
+
+// div > table > thead > tr > th
+//             > tbody > tr > td
+
+function renderTableHeading(){
+  TBL.textContent = "";
+  const table = document.createElement("table");
+  const thead = document.createElement("thead");
+  const tr = document.createElement("tr");
+  const headingArr = ["Title", "Year", "Rating", "Watched"];
+
+  headingArr.forEach (function(data){
+    const th = document.createElement("th");
+    th.textContent = data;
+    tr.appendChild(th)
+  })
+  thead.appendChild(tr)
+  table.appendChild(thead)
+  return table
 }
 
-function determineHouseHoldPts(numberInHousehold) {
-  let houseHoldPoints = 0;
-  if (numberInHousehold === 1) {
-    houseHoldPoints = 14;
-  } else if (numberInHousehold === 2) {
-    houseHoldPoints = 12;
-  } else if (numberInHousehold === 3) {
-    houseHoldPoints = 10;
-  } else if (numberInHousehold === 4) {
-    houseHoldPoints = 8;
-  } else if (numberInHousehold === 5) {
-    houseHoldPoints = 6;
-  } else if (numberInHousehold === 6) {
-    houseHoldPoints = 4;
-  } else if (numberInHousehold > 6) {
-    houseHoldPoints = 2;
-  }
-   return houseHoldPoints;
+function renderTable (movieData){
+  const table = renderTableHeading()
+  const tbody = document.createElement("tbody")
+  
+  movieData.forEach(function(obj){
+    const tr = document.createElement("tr");
+    const tName = document.createElement("td");
+    tName.textContent = obj.title
+    tr.appendChild(tName);
+
+    const tYear = document.createElement("td");
+    tYear.textContent = parseInt(obj.year)
+    tr.appendChild(tYear);
+
+    const tRate = document.createElement("td");
+    tRate.textContent = parseInt(obj.rating)
+    tr.appendChild(tRate);
+
+    const tWatched = document.createElement("td");
+    tWatched.textContent = parseInt(obj.seen)
+    tr.appendChild(tWatched);
+    
+    tbody.appendChild(tr)
+  })
+  
+  table.appendChild(tbody);
+  TBL.appendChild(table);
 }
 
-
-//changed to output as objects with properties within an array.
-function start(houseHoldMembers, houseSize) {
-  const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
-  const houseSizePts = determineHouseSizePts(houseSize);
-  const total = houseHoldPTS + houseSizePts;
-  cfpData.push({
-    houseHoldMembers: houseHoldMembers, 
-    houseSize: houseSize, 
-    houseHoldPTS: houseHoldPTS, 
-    houseSizePts: houseSizePts, 
-    total: total,
-  });
-}
-
-
-
-start(1, "apt");
-start(2, "apt");
-start(3, "apt");
-start(4, "apt");
-start(5, "apt");
-start(6, "apt");
-start(7, "apt");
-start(1, "small");
-start(2, "small");
-start(3, "small");
-start(4, "small");
-start(5, "small");
-start(6, "small");
-start(7, "small");
-start(1, "medium");
-start(2, "medium");
-start(3, "medium");
-start(4, "medium");
-start(5, "medium");
-start(6, "medium");
-start(7, "medium");
-start(1, "large");
-start(2, "large");
-start(3, "large");
-start(4, "large");
-start(5, "large");
-start(6, "large");
-start(7, "large");
-
-console.log(cfpData);
-
-displayOutput();
-
-
-//Changed to reference object properties within an array of objects.
-function displayOutput (){
-  for (let i =0; i<cfpData.length; i++) {
-   const output = document.getElementById("output");
-   const newP = document.createElement("p");
-   const newH2 = document.createElement("h2");
-   newH2.textContent = `Carbon Footprint total is ${cfpData[i].total}`
-   const newH3 = document.createElement("h3");
-   newH3.textContent = 'based on Number in Household and Size of Home'
-   newP.textContent = `This number is based on the number of members in the home of ${cfpData[i].houseHoldMembers} (score: ${cfpData[i].houseHoldPTS}) `;
-   newP.textContent += `and a ${cfpData[i].houseSize} size of home (score: ${cfpData[i].houseSizePts})`
-    output.appendChild(newH2);
-    output.appendChild(newH3);
-    output.appendChild(newP);
-  }
-}
+renderTable(movieData);
