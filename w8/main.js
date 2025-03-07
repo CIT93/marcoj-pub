@@ -1,19 +1,41 @@
-import { renderTbl } from "./render.js";
-import { start } from "./cfp.js";
+import { renderTbl, gIndex, resetIndex } from "./render.js";
+import { start, determineHouseHoldPts, determineHouseSizePts, cfpData} from "./cfp.js";
 
 const FORM =document.getElementById("form");
 const OUTPUT = document.getElementById("output");
 
 FORM.addEventListener("submit", function(e){
     e.preventDefault();
-    const firstName = FORM.firstname.value;
-    const lastName = FORM.lastname.value;
-    const NIH = parseInt(FORM.householdsize.value, 10);  //Had to convert the string to a number using a base10 number system
-    const HS = FORM.housesize.value;
-    const cfpData = start(NIH,HS,firstName);
-    OUTPUT.innerHTML = "";
-    renderTbl(cfpData, firstName, lastName);
+    if (gIndex === null){
+        const firstName = FORM.firstname.value;
+        const lastName = FORM.lastname.value;
+        const NIH = parseInt(FORM.householdsize.value, 10);  //Had to convert the string to a number using a base10 number system
+        const HS = FORM.housesize.value;
+        const iCfpData = start(NIH,HS,firstName,lastName);
+        OUTPUT.innerHTML = "";
+        renderTbl(iCfpData, firstName, lastName);
+    } else {
+        const firstName = FORM.firstname.value;
+        const lastName = FORM.lastname.value;
+        const NIH = parseInt(FORM.householdsize.value, 10);
+        const HS = FORM.housesize.value;
+        const houseHoldPTS = determineHouseHoldPts(NIH);
+        const houseSizePts = determineHouseSizePts(HS);
+        const total = houseHoldPTS + houseSizePts;
+        const tempArr = {
+            fName: firstName,
+            houseHoldMembers: houseHoldPTS, 
+            houseSize: houseSizePts, 
+            houseHoldPTS: houseHoldPTS, 
+            houseSizePts: houseSizePts, 
+            total: total,
+            lName: lastName,};
+        cfpData.splice(gIndex, 1, tempArr);
+        renderTbl(cfpData);
+        resetIndex();
+    }
     FORM.reset();
+
 })
 
 

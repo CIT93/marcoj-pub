@@ -1,4 +1,4 @@
-const cfpData = [];
+let cfpData = [];
 
 function determineHouseSizePts(size) {
     let houseSizePoints = 0;
@@ -34,19 +34,20 @@ function determineHouseHoldPts(numberInHousehold) {
     return houseHoldPoints;
 }
 
-function start(houseHoldMembers, houseSize, fName,) {
+function start(houseHoldMembers, houseSize, fName, lName) {
     const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
     const houseSizePts = determineHouseSizePts(houseSize);
     const total = houseHoldPTS + houseSizePts;
     cfpData.push({
+        fName: fName,
         houseHoldMembers: houseHoldMembers, 
         houseSize: houseSize, 
         houseHoldPTS: houseHoldPTS, 
         houseSizePts: houseSizePts, 
         total: total,
-        fName: fName,
+        lName: lName,
     });
     return cfpData
 }
 
-export {start}
+export {start, determineHouseHoldPts, determineHouseSizePts, cfpData}
