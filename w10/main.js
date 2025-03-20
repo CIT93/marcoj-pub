@@ -5,7 +5,7 @@ import { saveLS, cfpData } from "./storage.js";
 
 renderTbl(cfpData);
 
-FORM.addEventListener("submit", function(e){
+FORM.addEventListener("submit", (e) => {
     e.preventDefault();
     const error = document.getElementById("error");
     const firstName = FORM.firstname.value;
@@ -21,7 +21,7 @@ FORM.addEventListener("submit", function(e){
     }
     
     if (flag === 0) {
-        start(parseInt(FORM.householdsize.value), FORM.housesize.value, firstName, lastName);
+        start(parseInt(FORM.householdsize.value), FORM.housesize.value, firstName, lastName, 1, 2, 3, 4);
         saveLS(cfpData);
         renderTbl(cfpData);
         FORM.reset();
@@ -36,15 +36,13 @@ FORM.addEventListener("submit", function(e){
 
 // code along
 
-const add2 = function(...a){
-    return 2 + a[3];
-};
+const add2 = (...a) => 2 + a[3];
 
 const results = add2(1, 2, 3, 4);
 
 const a = 3;
 
-(function(a){
+(a => {
     console.log("inside IIFE");
     console.log(a);
-});
+})();

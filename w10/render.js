@@ -1,7 +1,7 @@
 import { FORM, TBL } from "./global.js";
 import { saveLS, cfpData } from "./storage.js";
 
-const renderTblHeading = function() {
+const renderTblHeading = () => {
     TBL.innerHTML = "";
     const table = document.createElement("table");
     const thead = document.createElement("thead");
@@ -17,13 +17,13 @@ const renderTblHeading = function() {
     return table;
 }
 
-const onUpdate = function(index, data){
+const onUpdate = (index, data = []) => {
     data.splice(index, 1);  
     saveLS(cfpData);
     renderTbl(data);
 }
 
-const renderTblBtn = function(obj, index, data){
+const renderTblBtn = (obj, index, data = []) => {
     const td = document.createElement("td");
     const btnEdit = document.createElement("button");
     const btnDel = document.createElement("button");
@@ -45,7 +45,7 @@ const renderTblBtn = function(obj, index, data){
     return td
 }
 
-const renderTblBody = function(data) {
+const renderTblBody = (data = []) => {
     const tbody = document.createElement("tbody");
     data.forEach(function(obj, index) {
         const tr = document.createElement("tr");
@@ -65,7 +65,7 @@ const renderTblBody = function(data) {
     return tbody;
 }
 
-const renderTbl = function(data) {
+const renderTbl = (data = []) => {
     TBL.innerHTML = "";
     if (data.length !== 0){
         const table = renderTblHeading();
