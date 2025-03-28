@@ -1,6 +1,6 @@
 import { cfpData } from "./storage.js";
 
-const determineHouseSizePts = function(size) {
+const determineHouseSizePts = (size) => {
     let houseSizePoints = 0;
     if(size === "large") {
       houseSizePoints = 10;
@@ -14,7 +14,7 @@ const determineHouseSizePts = function(size) {
       return houseSizePoints;
   }
 
-const determineHouseHoldPts = function(numberInHousehold) {
+const determineHouseHoldPts = (numberInHousehold) => {
     let houseHoldPoints = 0;
     if (numberInHousehold === 1) {
         houseHoldPoints = 14;
@@ -34,7 +34,7 @@ const determineHouseHoldPts = function(numberInHousehold) {
     return houseHoldPoints;
 }
 
-const start = function(houseHoldMembers, houseSize, firstName, lastName) {
+const start = (houseHoldMembers, houseSize, firstName, lastName, ...extra) => {
     const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
     const houseSizePts = determineHouseSizePts(houseSize);
     const total = houseHoldPTS + houseSizePts;

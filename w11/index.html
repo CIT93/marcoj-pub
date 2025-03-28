@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 11</title>
+    <script type="module" src="main.js"> </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="form">
+        <fieldset>
+            <legend>Calculating Your Carbon Footprint Points</legend>
+            <div id="error"></div>
+            <div>
+                <label for="">First Name:</label>
+                <input type="text" name="firstname" maxlength="20" />
+            </div>
+            <div>
+                <label for="">Last Name:</label>
+                <input type="text" name="lastname" maxlength="20" />
+            </div>
+            <div>
+                <label for="">Count the number of people in your household:</label>
+                <input type="number" name="householdsize" min="1" max="6" required/>
+            </div>
+            <div>
+                <label for="">Consider the size of your home:</label>
+                <select name="housesize" required>
+                    <option value="">--Please choose an option--</option>
+                    <option value="apt">Apartment</option>
+                    <option value="small">Small Home</option>
+                    <option value="medium">Medium Home</option>
+                    <option value="large">Large Home</option>
+                </select>
+            </div>
+            <button type="submit">Submit</button>
+        </fieldset>
+        
+    </form>
+    <div id="tab-data"></div>
+</body>
+</html>
