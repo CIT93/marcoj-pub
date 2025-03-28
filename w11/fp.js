@@ -33,13 +33,17 @@ const determineHouseHoldPts = function(numberInHousehold) {
 }
 
 class FP{
-    constructor (houseMembers, houseSize, first, last){
+    constructor (houseMembers, houseSize, first, last, diet, trash){
         this.firstName = first
         this.houseMembers = houseMembers
         this.houseSize = houseSize
+        this.diet = diet
+        this.trash = trash
         this.lastName = last
         this.determineHouseHoldPts()
         this.determineHouseSizePts()
+        this.determineDietPts()
+        this.determineTrashPts()
         this.total()
     }
     //method for adding houseHoldPTS to obj
@@ -73,9 +77,32 @@ class FP{
         }
     }
 
-    total(){
-        this.total = this.houseHoldPTS + this.houseSizePts
+    determineDietPts(){
+        if(this.diet === "meat daily") {
+            this.dietPts = 10;
+        } else if(this.diet === "meat weekly") {
+            this.dietPts = 8;
+        } else if (this.diet === "vegetarian") {
+            this.dietPts = 4;
+        } else if (this.diet === "vegan") {
+            this.dietPts = 2;
+        }
     }
+
+    determineTrashPts(){
+        if(this.trash === "prepackaged") {
+            this.trashPts = 12;
+        } else if(this.trash === "balanced") {
+            this.trashPts = 6;
+        } else if (this.trash === "fresh") {
+            this.trashPts = 2;
+        }
+    }
+
+    total(){
+        this.total = this.houseHoldPTS + this.houseSizePts + this.dietPts + this.trashPts
+    }
+
     //added for practice and fun, can call method to have console log whats in the obj
     debug(){
         console.log(this)

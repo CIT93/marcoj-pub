@@ -6,7 +6,7 @@ const renderTblHeading = function() {
     const table = document.createElement("table");
     const thead = document.createElement("thead");
     const tr = document.createElement("tr");
-    const headingTextArr = ["Name", "HouseHold", "HouseSize", "Footprint", "Action"];
+    const headingTextArr = ["Name", "HouseHold", "HouseSize", "Diet", "Trash Impact", "Footprint", "Action"];
     headingTextArr.forEach(function(text) {
         const th = document.createElement("th")
         th.textContent = text;
@@ -39,6 +39,8 @@ const renderTblBtn = function(obj, index, data){
         FORM[2].value = obj.lastName;
         FORM[3].value = obj.houseMembers;
         FORM[4].value = obj.houseSize;
+        FORM.diet.value = obj.diet;
+        FORM.trash.value = obj.trash;
         onUpdate(index, data);
     })
     
@@ -50,7 +52,7 @@ const renderTblBody = function(data) {
     data.forEach(function(obj, index) {
         const tr = document.createElement("tr");
         for(const [key, value] of Object.entries(obj)){
-            if (key !== "houseHoldPTS" && key !== "houseSizePts" && key !== "lastName") {
+            if (key !== "houseHoldPTS" && key !== "houseSizePts" && key !== "lastName" && key !== "trashPts" && key !== "dietPts") {
                 
                 const td = document.createElement("td");
                 td.textContent = value;

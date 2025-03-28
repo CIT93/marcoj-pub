@@ -11,6 +11,8 @@ FORM.addEventListener("submit", function(e){
     const error = document.getElementById("error");
     const firstName = FORM.firstname.value;
     const lastName = FORM.lastname.value;
+    const diet = FORM.diet.value;
+    const trash = FORM.trash.value;
     const message = []
     let flag = 0
     if (firstName === "") {
@@ -25,7 +27,7 @@ FORM.addEventListener("submit", function(e){
         //commenting out start so data isnt duplicated
         //start(parseInt(FORM.householdsize.value), FORM.housesize.value, firstName, lastName);
         
-        const fpObj = new FP(parseInt(FORM.householdsize.value), FORM.housesize.value, firstName, lastName)
+        const fpObj = new FP(parseInt(FORM.householdsize.value), FORM.housesize.value, firstName, lastName, diet, trash)
         fpObj.debug();
         cfpData.push(fpObj); //storing data to cfp to connect it back to rest of code.
 
