@@ -6,8 +6,8 @@ function renderImg (data){
     while(i<=20){
         const img = document.createElement("img")
         img.src = data[i].thumbnailUrl
-            section.appendChild(img)
-            i++
+        section.appendChild(img)
+        i++
     }
     OUTPUT.appendChild(section)
 }
