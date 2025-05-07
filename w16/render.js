@@ -56,6 +56,7 @@ const renderTblBtn = function(obj, index, data){
         FORM.washer.value = obj.washerPts
         FORM.dishWasher.value = obj.dishesPts
         boxesOnEdit(obj)
+        FORM.purchases.value = obj.purchasePts
         onUpdate(index, data);
     })
     

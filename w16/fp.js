@@ -33,7 +33,7 @@ const determineHouseHoldPts = function(numberInHousehold) {
 }
 
 class FP{
-    constructor (houseMembers, houseSize, first, last, diet, trash, washer, dishes){
+    constructor (houseMembers, houseSize, first, last, diet, trash, washer, dishes, purchases){
         this.firstName = first
         this.houseMembers = houseMembers
         this.houseSize = houseSize
@@ -42,6 +42,7 @@ class FP{
         this.lastName = last
         this.washerPts = washer
         this.dishesPts = dishes
+        this.purchasePts = purchases
         this.storeChecks()
         this.determineHouseHoldPts()
         this.determineHouseSizePts()
@@ -117,7 +118,7 @@ class FP{
     }
 
     total(){
-        this.total = (this.houseHoldPTS + this.houseSizePts + this.dietPts + this.trashPts + this.washerPts + this.dishesPts)
+        this.total = (this.houseHoldPTS + this.houseSizePts + this.dietPts + this.trashPts + this.washerPts + this.dishesPts + this.purchasePts)
     }
 
     //added for practice and fun, can call method to have console log whats in the obj

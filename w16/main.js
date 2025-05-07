@@ -45,7 +45,7 @@ FORM.addEventListener("submit", function(e){
     }
     
     if (flag === 0) {
-        const fpObj = new FP(parseInt(FORM.householdsize.value), FORM.housesize.value, firstName, lastName, diet, trash, parseInt(FORM.washer.value), parseInt(FORM.dishWasher.value))
+        const fpObj = new FP(parseInt(FORM.householdsize.value), FORM.housesize.value, firstName, lastName, diet, trash, parseInt(FORM.washer.value), parseInt(FORM.dishWasher.value), parseInt(FORM.purchases.value))
         fpObj.debug();
         cfpData.push(fpObj); //storing data to cfp to connect it back to rest of code.
         saveLS(cfpData);
