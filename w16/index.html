@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 12</title>
+    <script type="module" src="main.js"> </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="form">
+        <fieldset>
+            <legend>Calculating Your Carbon Footprint Points</legend>
+            <div id="error"></div>
+            <div>
+                <label for="">First Name:</label>
+                <input type="text" name="firstname" maxlength="20" />
+            </div>
+            <div>
+                <label for="">Last Name:</label>
+                <input type="text" name="lastname" maxlength="20" />
+            </div>
+            <div>
+                <label for="">Count the number of people in your household:</label>
+                <input type="number" name="householdsize" min="1" max="6" required/>
+            </div>
+            <div>
+                <label for="">Consider the size of your home:</label>
+                <select name="housesize" required>
+                    <option value="">--Please choose an option--</option>
+                    <option value="apt">Apartment</option>
+                    <option value="small">Small Home</option>
+                    <option value="medium">Medium Home</option>
+                    <option value="large">Large Home</option>
+                </select>
+            </div>
+            <div>
+                <label for="">Evaluate your food choices:</label>
+                <select name="diet" required>
+                    <option value="">--Please choose an option--</option>
+                    <option value="meat daily">Domestic Meat - Daily</option>
+                    <option value="meat weekly">Domestic Meat - Weekly</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                </select>
+                <select name="trash" required>
+                    <option value="">--Please choose an option--</option>
+                    <option value="prepackaged">Prepackaged</option>
+                    <option value="balanced">Balanced</option>
+                    <option value="fresh">Fresh</option>
+                </select>
+            </div>
+            <div>
+                <label for=""></label>
+                <input type="checkbox" id="toggleWasher"> Use a Washer?
+                    <div id="washerContainer" style="display: none;">
+                        <select name="washer" >
+                        <option value=0>--How often?--</option>
+                        <option value=1>1-3 times a week</option>
+                        <option value=2>4-9 times a week</option>
+                        <option value=3>more then 9 times a week</option>
+                    </select></div> 
+                <input type="checkbox" id="toggleDishWasher"> Use a Dish Washer?
+                    <div id="dishWasherContainer" style="display: none;">
+                        <select name="dishWasher" >
+                            <option value=0>--How often?--</option>
+                            <option value=1>1-3 times a week</option>
+                            <option value=2>4-9 times a week</option>
+                            <option value=3>more then 9 times a week</option>
+                        </select>
+                    </div>
+            </div>
+            <button type="submit">Submit</button>
+        </fieldset>
+        
+    </form>
+    <div id="tab-data"></div>
+</body>
+</html>
