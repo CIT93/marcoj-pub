@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My App - Step 7</title>
+    <script type=module src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="form">
+        <fieldset>
+            <legend>League Champions to Play.</legend>
+            <div id="error"></div>
+            <div>
+                <label for="">First Name:</label>
+                <input type="text" name="firstName" maxlength="20" required/>
+            </div>
+            <div id="errorL"></div>
+            <div>
+                <label for="">Which lane are you playing? </label>
+                <select name="lane" >
+                    <option value="">--Please choose a lane--</option>
+                    <option value="top">Top</option>
+                    <option value="jungle">Jungle</option>
+                    <option value="mid">Mid</option>
+                    <option value="adc">Bottom</option>
+                    <option value="support">Support</option>
+                </select>
+            </div>
+            <div id="errorR"></div>
+            <div>
+                <label for="">Which role are you playing? </label>
+                <select name="role">
+                    <option value="">--Please choose a role--</option>
+                    <option value="tank">Tank</option>
+                    <option value="fighter">Fighter</option>
+                    <option value="mage">Mage</option>
+                    <option value="assassin">Assassin</option>
+                    <option value="marksman">Marksman</option>
+                    <option value="enchanter">Enchanter</option>
+                </select>
+            </div>
+            <div id="errorN"></div>
+            <div>
+                <label for="">How Many recommendations Would You Like?</label>
+                <input type="number" name="howMany" min="1" max="5" required/>
+            </div>
+            <div>
+                <label>
+                    <input type="checkbox" name="random" id="useAny" value="yes">
+                    Return a random champion?
+                </label>
+            </div>
+            <button type="submit">Submit</button>
+        </fieldset>
+        
+    </form>
+    <div id="body"></div>
+    <div id="tab-data"></div>
+    
+</body>
+</html>
