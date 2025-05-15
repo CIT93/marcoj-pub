@@ -80,6 +80,9 @@ const renderTblBtn = function(obj, index, data){
         FORM.purchases.value = obj.purchasePts
         FORM.wasteProduced.value = obj.wastePts
         recycleButtonsonEdit(obj)
+        FORM.transCar.value = obj.transCar
+        FORM.transBus.value = obj.transBus
+        FORM.transPlane.value = obj.transPlane
         onUpdate(index, data);
     })
     

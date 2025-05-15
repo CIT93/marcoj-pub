@@ -33,7 +33,7 @@ const determineHouseHoldPts = function(numberInHousehold) {
 }
 
 class FP{
-    constructor (houseMembers, houseSize, first, last, diet, trash, washer, dishes, purchases, trashProduced, glass, plastic, paper, aluminum, steel, food){
+    constructor (houseMembers, houseSize, first, last, diet, trash, washer, dishes, purchases, trashProduced, glass, plastic, paper, aluminum, steel, food, transCar, transBus, transPlane){
         this.firstName = first
         this.houseMembers = houseMembers
         this.houseSize = houseSize
@@ -50,6 +50,10 @@ class FP{
         this.aluminum = aluminum
         this.steel = steel
         this.food = food
+        this.transCar = transCar
+        this.transBus = transBus
+        this.transPlane = transPlane
+        this.tallyTransPts()
         this.storeChecks()
         this.determineHouseHoldPts()
         this.determineHouseSizePts()
@@ -58,6 +62,10 @@ class FP{
         this.determineRecyclePts()
         this.total()
     }
+
+tallyTransPts(){
+    this.transPts = this.transCar + this.transBus + this.transPlane
+}
 
     determineRecyclePts(){
         let num = 24
@@ -159,6 +167,7 @@ class FP{
             + this.purchasePts
             + this.wastePts
             + this.recyclePts
+            + this.transPts
         )
     }
 

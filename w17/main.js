@@ -55,11 +55,15 @@ FORM.addEventListener("submit", function(e){
             parseInt(FORM.dishWasher.value), 
             parseInt(FORM.purchases.value), 
             parseInt(FORM.wasteProduced.value),
-            FORM.cGlass.checked, FORM.cPlastic.checked, FORM.cPaper.checked, FORM.cAluminum.checked, FORM.cSteel.checked, FORM.cFood.checked
+            FORM.cGlass.checked, FORM.cPlastic.checked, FORM.cPaper.checked, FORM.cAluminum.checked, FORM.cSteel.checked, FORM.cFood.checked,
+            parseInt(FORM.transCar.value), 
+            parseInt(FORM.transBus.value), 
+            parseInt(FORM.transPlane.value), 
+
         )
         fpObj.debug();
-        cfpData.push(fpObj); //storing data to cfp to connect it back to rest of code.
-        saveLS(cfpData);
+        cfpData.push(fpObj); //storing data to cfp to connect it back to rest of code.       saveLS(cfpDa,
+        // ta);
         renderTbl(cfpData);
         FORM.reset();
         flag = 0
